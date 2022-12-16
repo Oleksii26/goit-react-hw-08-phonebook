@@ -5,6 +5,9 @@ body {
 .item {
     margin-top: 10px;
     margin-bottom: 10px;
+    display: flex;
+    width: 300px;
+   justify-content: space-between;
 }
 
 .form {
@@ -52,7 +55,7 @@ body {
     margin-left: 0;
     cursor: pointer;
     position: absolute;
-    left: 280px;
+    left: 380px;
 }
 
 .btnDelete:hover {
@@ -60,3 +63,7 @@ body {
     color: white;
     border-radius: 4px;
 }
+
+.div {
+    width: 200px;
+  }

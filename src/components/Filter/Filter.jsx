@@ -9,6 +9,7 @@ const Filter = () => {
     return <input className={css.input}
         type="text" name="filter"
         value={contactFilter}
-        onChange={(e) => dispatch(filterContacts(e.target.value))} />
+        onChange={(e) => dispatch(filterContacts(e.target.value))} 
+        />
 }
 export default Filter
