@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fetchContacts } from "./operations";
 // import { persistReducer } from "redux-persist"
 // import storage from "redux-persist/lib/storage"
 // import { fetchContacts } from "./operations";
@@ -20,7 +21,7 @@ export const contactSlice = createSlice({
     },
 
 
-    reducers: {
+    extraReducers: {
         addContact(state, action) {
             const nameToCheck = action.payload.name
             const isIncludeName = state.contacts.items.some(contact => contact.name === nameToCheck)
@@ -41,15 +42,15 @@ export const contactSlice = createSlice({
         filterContacts(state, action) {
             state.filter = action.payload
         },
-        fetchProgress(state) {
+        [fetchContacts.pending](state) {
             state.isLoading = true
         },
-        fetchSucsess(state, action) {
+        [fetchContacts.fulfilled](state, action) {
             state.isLoading = false
             state.error = null
             state.items = action.payload
         },
-        fetchError(state, action) {
+        [fetchContacts.rejected](state, action) {
             state.isLoading = false
             state.error = action.payload
         },
@@ -65,4 +66,4 @@ export const contactSlice = createSlice({
 
 // export const contactReduser = persistReducer(persistConfig, contactSlice.reducer)
 export const contactReduser = contactSlice.reducer
-export const { addContact, onRemove, filterContacts, fetchError, fetchProgress, fetchSucsess } = contactSlice.actions
+export const { addContact, onRemove, filterContacts } = contactSlice.actions
