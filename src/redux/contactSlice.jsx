@@ -1,10 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchContacts } from "./operations";
-// import { persistReducer } from "redux-persist"
-// import storage from "redux-persist/lib/storage"
-// import { fetchContacts } from "./operations";
-
-
 
 export const contactSlice = createSlice({
     name: 'contacts',
@@ -20,8 +15,7 @@ export const contactSlice = createSlice({
         filter: '',
     },
 
-
-    extraReducers: {
+    reducers: {
         addContact(state, action) {
             const nameToCheck = action.payload.name
             const isIncludeName = state.contacts.items.some(contact => contact.name === nameToCheck)
@@ -42,6 +36,10 @@ export const contactSlice = createSlice({
         filterContacts(state, action) {
             state.filter = action.payload
         },
+    },
+    extraReducers: {
+
+
         [fetchContacts.pending](state) {
             state.isLoading = true
         },
@@ -57,13 +55,5 @@ export const contactSlice = createSlice({
     }
 })
 
-
-// const persistConfig = {
-//     key: 'contacts',
-//     storage,
-//     blacklist: ['filter']
-// }
-
-// export const contactReduser = persistReducer(persistConfig, contactSlice.reducer)
 export const contactReduser = contactSlice.reducer
 export const { addContact, onRemove, filterContacts } = contactSlice.actions

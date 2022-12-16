@@ -28,7 +28,6 @@ const ContactList = () => {
         <ul className={css.list}> {getVisibleContacts.map(contact => <ContactItems key={contact.id} {...contact} />)}</ul>
     </>
     )
-
 }
 export default ContactList
 
