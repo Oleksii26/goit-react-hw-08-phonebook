@@ -1,8 +1,8 @@
 import css from './PhoneBook.module.css'
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactSlice';
 import shortid from 'shortid';
+import { addContactsInBack } from 'redux/operations';
 
 const PhoneBook = () => {
 
@@ -12,10 +12,10 @@ const PhoneBook = () => {
     const dispatch = useDispatch()
     const addTask = (e) => {
         e.preventDefault()
-        dispatch(addContact({ name, number }))
+        dispatch(addContactsInBack({ name, number }))
         setName('')
         setNumber('')
-            }
+    }
 
     const nameInputId = shortid.generate()
     const numberInputId = shortid.generate()
