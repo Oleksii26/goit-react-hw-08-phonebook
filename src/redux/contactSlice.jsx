@@ -34,6 +34,11 @@ export const contactSlice = createSlice({
         [addContactsInBack.fulfilled](state, action) {
             state.isLoading = false
             state.error = null
+            const nameToCheck = action.payload.name
+            const isIncludeName = state.items.some(contact => contact.name.toLowerCase() === nameToCheck.toLowerCase())
+            if (isIncludeName) {
+                return alert(`${action.payload.name} is already in contacts`)
+            }
             state.items.push(action.payload)
         },
         [addContactsInBack.rejected](state, action) {
@@ -47,7 +52,6 @@ export const contactSlice = createSlice({
             state.isLoading = false
             state.error = null
             state.items = state.items.filter(e => e.id !== action.payload.id)
-            console.log(action)
         },
         [deleteContacts.rejected](state, action) {
             state.isLoading = false
