@@ -15,8 +15,8 @@ const ContactList = () => {
     }, [dispatch])
 
     const getVisibleContacts = useMemo(() => {
-        const normalizedContacts = filter.toLocaleLowerCase()
-        return contacts.items.filter(({ name }) => name.toLocaleLowerCase().includes(normalizedContacts))
+        const normalizedContacts = filter.toLowerCase()
+        return contacts.items.filter(({ name }) => name.toLowerCase().includes(normalizedContacts))
     }, [contacts, filter])
 
 
