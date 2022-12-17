@@ -64,4 +64,4 @@ export const contactSlice = createSlice({
 })
 
 export const contactReduser = contactSlice.reducer
-export const { filterContacts } = contactSlice.actions
+// export const { filterContacts } = contactSlice.actions
