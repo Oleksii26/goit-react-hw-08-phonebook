@@ -4,15 +4,9 @@ import { fetchContacts, deleteContacts, addContactsInBack } from "./operations";
 export const contactSlice = createSlice({
     name: 'contacts',
     initialState: {
-        contacts: {
-            item: [],
-            isLoadin: false,
-            erro: null,
-        },
         items: [],
         isLoading: false,
         error: null,
-        filter: '',
     },
 
     reducers: {
@@ -64,4 +58,3 @@ export const contactSlice = createSlice({
 })
 
 export const contactReduser = contactSlice.reducer
-// export const { filterContacts } = contactSlice.actions

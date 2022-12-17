@@ -1,4 +1,4 @@
-import ContactList from "./Phonebook/ContactList";
+import ContactList from "./Contacts/ContactList";
 import Filter from "./Filter/Filter";
 import PhoneBook from "./Phonebook/Phonebook";
 

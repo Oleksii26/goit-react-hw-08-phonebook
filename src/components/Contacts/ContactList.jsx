@@ -1,5 +1,5 @@
 import { ContactItems } from './ContactItems'
-import css from './PhoneBook.module.css'
+import css from '../Phonebook/PhoneBook.module.css'
 import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
