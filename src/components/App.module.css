@@ -1,0 +1,14 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.link {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link:global(.active) {
+    color: orange;
+}

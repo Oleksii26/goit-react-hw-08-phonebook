@@ -36,10 +36,8 @@ export const contactSlice = createSlice({
             state.error = null
             const nameToCheck = action.payload.name
             const isIncludeName = state.items.some(contact => contact.name.toLowerCase() === nameToCheck.toLowerCase())
-            if (isIncludeName) {
-                return alert(`${action.payload.name} is already in contacts`)
-            }
-            state.items.push(action.payload)
+            if (isIncludeName) return alert(`${action.payload.name} is already in contacts`)
+             state.items.push(action.payload.name)
         },
         [addContactsInBack.rejected](state, action) {
             state.isLoading = false
