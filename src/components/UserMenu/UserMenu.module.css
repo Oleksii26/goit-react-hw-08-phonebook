@@ -1,0 +1,9 @@
+.text {
+    margin: 0;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.name {
+    color: brown;
+}

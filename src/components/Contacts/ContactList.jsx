@@ -13,13 +13,12 @@ const ContactList = () => {
     useEffect(() => {
         dispatch(fetchContacts())
     }, [dispatch])
-    
     const getVisibleContacts = useMemo(() => {
         const normalizedContacts = filter.toLowerCase()
         return contacts.items.filter(({ name }) => name.toLowerCase().includes(normalizedContacts))
     }, [contacts, filter])
 
-    if (contacts.length) { return null }
+    if (contacts.length === 0) { return null }
 
     return (<> <br />
         {contacts.isLoading && <b>Loading tasks...</b>}

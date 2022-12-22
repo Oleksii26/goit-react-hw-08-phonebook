@@ -1,17 +1,19 @@
-
-import css from '../Phonebook/PhoneBook.module.css'
+import { AuthNav } from 'components/AuthNav/AuthNav'
+import { UserMenu } from 'components/UserMenu/UserMenu'
+import { useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom'
+import { getIsLoggedIn } from 'redux/auth/authSelectors'
+import css from './AppBar.module.css'
 
 
 export const AppBar = () => {
-    return (
-        <form className={css.form} action="">
-            <label className={css.label} htmlFor="">Your Name
-                <input type="text" />
-            </label>
-            <label className={css.label} htmlFor="">Your Email
-                <input type="text" />
-            </label>
-            <button className={css.btn}>Send</button>
-        </form>
+    const isLoggedIn = useSelector(getIsLoggedIn)
+    return (<>
+        <header className={css.nav}>
+            <NavLink className={css.link} to='/phonebook'>Phone Book</NavLink>
+            {isLoggedIn ? <UserMenu /> : <AuthNav />}
+        </header>
+        <hr />
+    </>
     )
 }
