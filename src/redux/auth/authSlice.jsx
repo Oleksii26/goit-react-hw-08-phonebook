@@ -3,9 +3,10 @@ import { authOperations } from "./authOperation"
 const { createSlice } = require("@reduxjs/toolkit")
 
 const initialState = {
-    user: { name: null, email: null },
+    user: { name: 'null', email: 'null' },
     token: null,
-    isLoggedIn: false
+    isLoggedIn: false,
+    contacts: { name: '', number: '' }
 }
 
 const authSlice = createSlice({
@@ -26,6 +27,13 @@ const authSlice = createSlice({
             state.user = { name: null, email: null }
             state.token = null
             state.isLoggedIn = false
+        },
+        [authOperations.fetchContact.fulfilled](state, action) {
+            state.contacts = action.payload
+        },
+        [authOperations.fetchCurrentUser.fulfilled](state, action) {
+            state.user = { ...action.payload }
+            state.isLoggedIn = true
         },
     }
 })

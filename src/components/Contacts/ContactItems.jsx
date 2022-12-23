@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux'
 import { deleteContacts } from 'redux/operations'
 import css from '../Phonebook/PhoneBook.module.css'
 
-export const ContactItems = ({ text = 0, name, number, id }) => {
+export const ContactItems = ({ text = 0, name, number, id = 0 }) => {
     const dispatch = useDispatch()
     return (
         <li key={id} className={css.item}>
