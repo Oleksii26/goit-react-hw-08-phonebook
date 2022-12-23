@@ -3,10 +3,10 @@ import css from '../Phonebook/PhoneBook.module.css'
 import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
-// import { fetchContacts } from 'redux/operations';
+import { fetchContacts } from 'redux/operations';
 import { getContacts, getFilter } from 'redux/selectort';
 // import { getContact } from 'redux/auth/authSelectors';
-import { authOperations } from 'redux/auth/authOperation';
+// import { authOperations } from 'redux/auth/authOperation';
 
 const ContactList = () => {
     const dispatch = useDispatch()
@@ -15,12 +15,12 @@ const ContactList = () => {
     // const contact = useSelector(getContact)
 
 
-    // useEffect(() => {
-    //     dispatch(fetchContacts())
-    // }, [dispatch])
     useEffect(() => {
-        dispatch(authOperations.fetchContact())
+        dispatch(fetchContacts())
     }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(authOperations.fetchContact())
+    // }, [dispatch])
 
 
     const getVisibleContacts = useMemo(() => {

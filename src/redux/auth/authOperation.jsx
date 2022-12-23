@@ -19,7 +19,7 @@ const register = createAsyncThunk('auth/register', async credentials => {
         token.set(data.token)
         return data
     } catch (error) {
-
+        alert('This user is exsist')
     }
 })
 
@@ -29,7 +29,7 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
         token.set(data.token)
         return data
     } catch (error) {
-
+        alert('Fail, try again!')
     }
 })
 
@@ -65,32 +65,23 @@ const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) =>
         const { data } = await axios.get('/users/current')
         return data
     } catch (error) {
+        return thunkAPI.rejectWithValue(error.message)
     }
 })
+
 // const fetchContact = createAsyncThunk('contacts/fetchAll',
 
 //     async (_, thunkAPI) => {
 //         try {
 //             const { data } = await axios.get('/contacts')
-//             token.set(data.token)
 //             return data
-//         } catch (e) {
-//             return thunkAPI.rejectWithValue(e.message)
+//         } catch (error) {
+//             return thunkAPI.rejectWithValue(error.message)
 //         }
 //     })
-const fetchContact = createAsyncThunk('contacts/fetchAll',
-
-    async (_, thunkAPI) => {
-        try {
-            const { data } = await axios.get('/contacts')
-            return data
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error.message)
-        }
-    })
 
 
-export const authOperations = { register, logIn, logOut, addContact, fetchContact, fetchCurrentUser }
+export const authOperations = { register, logIn, logOut, addContact, /* fetchContact, */ fetchCurrentUser }
 
 
 

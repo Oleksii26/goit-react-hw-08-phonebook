@@ -2,7 +2,7 @@ import css from './PhoneBook.module.css'
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
 import shortid from 'shortid';
-// import { addContactsInBack, fetchContacts } from 'redux/operations';
+// import { addContactsInBack/* , fetchContacts */ } from 'redux/operations';
 import { authOperations } from 'redux/auth/authOperation';
 
 const PhoneBook = () => {
@@ -13,6 +13,7 @@ const PhoneBook = () => {
     const dispatch = useDispatch()
     const addTask = (e) => {
         e.preventDefault()
+        // dispatch(addContactsInBack({ name, number }))
         dispatch(authOperations.addContact({ name, number }))
         setName('')
         setNumber('')     

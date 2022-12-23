@@ -1,19 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchContacts, deleteContacts, addContactsInBack } from "./operations";
+import { authOperations } from "./auth/authOperation";
+import { fetchContacts, deleteContacts/* , addContactsInBack */ } from "./operations";
 
 export const contactSlice = createSlice({
     name: 'contacts',
     initialState: {
         items: [],
+        // contacts: { name: '', number: '' },
         isLoading: false,
         error: null,
     },
 
-    reducers: {
-        filterContacts(state, action) {
-            state.filter = action.payload
-        },
-    },
     extraReducers: {
         [fetchContacts.pending](state) {
             state.isLoading = true
@@ -28,18 +25,31 @@ export const contactSlice = createSlice({
             state.error = action.payload
         },
 
-        [addContactsInBack.pending](state) {
+        // [addContactsInBack.pending](state) {
+        //     state.isLoading = true
+        // },
+        // [addContactsInBack.fulfilled](state, action) {
+        //     console.log(action)
+        //     state.isLoading = false
+        //     state.error = null
+        //     const nameToCheck = action.payload.name
+        //     const isIncludeName = state.items.some(contact => contact.name.toLowerCase() === nameToCheck.toLowerCase())
+        //     if (isIncludeName) return alert(`${action.payload.name} is already in contacts`)
+        //      state.items.push(action.payload.name)
+        // },
+        // [addContactsInBack.rejected](state, action) {
+        //     state.isLoading = false
+        //     state.error = action.payload
+        // },
+        [authOperations.addContact.pending](state) {
             state.isLoading = true
         },
-        [addContactsInBack.fulfilled](state, action) {
+        [authOperations.addContact.fulfilled](state, action) {
             state.isLoading = false
             state.error = null
-            const nameToCheck = action.payload.name
-            const isIncludeName = state.items.some(contact => contact.name.toLowerCase() === nameToCheck.toLowerCase())
-            if (isIncludeName) return alert(`${action.payload.name} is already in contacts`)
-             state.items.push(action.payload.name)
+            state.items.push(action.payload)
         },
-        [addContactsInBack.rejected](state, action) {
+        [authOperations.addContact.rejected](state, action) {
             state.isLoading = false
             state.error = action.payload
         },

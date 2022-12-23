@@ -11,23 +11,23 @@ export const fetchContacts = createAsyncThunk('contacts/fetchAll',
             const responce = await axios.get('/contacts')
             return responce.data
         } catch (e) {
-            return thunkAPI.rejectWithValue(e.message)
+            return thunkAPI.rejectWithValue(/* e.message */'You must registrations')
         }
     }
 )
-export const addContactsInBack = createAsyncThunk(
-    "contacts/addContacts",
-    async (text, thunkAPI) => {
+// export const addContactsInBack = createAsyncThunk(
+//     "contacts/addContacts",
+//     async (text, thunkAPI) => {
       
-        try {
-            const response = await axios.post("/contacts", text);
-            return response.data;
-        } catch (e) {
-            return thunkAPI.rejectWithValue(e.message);
-        }
-    }
+//         try {
+//             const response = await axios.post("/contacts", text);
+//             return response.data;
+//         } catch (e) {
+//             return thunkAPI.rejectWithValue(e.message);
+//         }
+//     }
 
-);
+// );
 
 export const deleteContacts = createAsyncThunk(
     "contacts/deleteContacts",
