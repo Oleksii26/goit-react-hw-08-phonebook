@@ -69,19 +69,8 @@ const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) =>
     }
 })
 
-// const fetchContact = createAsyncThunk('contacts/fetchAll',
 
-//     async (_, thunkAPI) => {
-//         try {
-//             const { data } = await axios.get('/contacts')
-//             return data
-//         } catch (error) {
-//             return thunkAPI.rejectWithValue(error.message)
-//         }
-//     })
-
-
-export const authOperations = { register, logIn, logOut, addContact, /* fetchContact, */ fetchCurrentUser }
+export const authOperations = { register, logIn, logOut, addContact, fetchCurrentUser }
 
 
 
