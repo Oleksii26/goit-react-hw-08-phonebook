@@ -49,7 +49,6 @@ const addContact = createAsyncThunk('auth/postContact',
             const { data } = await axios.post("/contacts", text);
             token.set(data.token)
             return data
-
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
         }
