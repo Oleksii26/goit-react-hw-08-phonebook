@@ -17,7 +17,7 @@ export const App = () => {
   return (<>
     <AppBar />
     <Routes>
-      <Route path='/' element={<LoginPage />} />
+      <Route index element={<LoginPage />} />
       <Route path="/phonebook" element={<Loyout />} />
       <Route path="/register" element={<FormRegistration />} />
       <Route path="/LogIn" element={<LoginPage />} />
