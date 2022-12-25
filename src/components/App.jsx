@@ -6,6 +6,9 @@ import { AppBar } from './AppBar/AppBar';
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { authOperations } from "redux/auth/authOperation";
+import { HomePage } from "./HomePage/HomePage";
+import { PrivateRoute } from "./PrivateRoute/PrivateRoute";
+import { RectrictedRoute } from "./RectrictedRoute/RectrictedRoute";
 
 export const App = () => {
   const dispatch = useDispatch()
@@ -13,15 +16,15 @@ export const App = () => {
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser())
   }, [dispatch])
-
+  console.log('4564654')
   return (<>
     <AppBar />
     <Routes>
-      <Route index element={<LoginPage />} />
-      <Route path="/phonebook" element={<Loyout />} />
-      <Route path="/register" element={<FormRegistration />} />
-      <Route path="/LogIn" element={<LoginPage />} />
-      <Route path='*' element={<LoginPage />} />
+      <Route index element={<HomePage />} />
+      <Route path="/phonebook" element={<PrivateRoute><Loyout /></PrivateRoute>} />
+      <Route path="/register" element={<RectrictedRoute><FormRegistration /></RectrictedRoute>} />
+      <Route path="/LogIn" element={<RectrictedRoute><LoginPage /></RectrictedRoute>} />
+      <Route path='*' element={<HomePage />} />
     </Routes>
   </>
 

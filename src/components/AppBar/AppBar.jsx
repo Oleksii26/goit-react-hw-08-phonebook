@@ -10,7 +10,10 @@ export const AppBar = () => {
     const isLoggedIn = useSelector(getIsLoggedIn)
     return (<>
         <header className={css.nav}>
-            <NavLink className={css.link} to='/phonebook'>Phone Book</NavLink>
+            <div>
+                <NavLink className={css.link} to='/'>Home</NavLink>
+                <NavLink className={css.link} to='/phonebook'>Phone Book</NavLink>
+            </div>
             {isLoggedIn ? <UserMenu /> : <AuthNav />}
         </header>
         <hr />

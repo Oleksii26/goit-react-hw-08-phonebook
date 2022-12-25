@@ -27,8 +27,9 @@ const authSlice = createSlice({
             state.user = { name: null, email: null }
             state.token = null
             state.isLoggedIn = false
+            state.contacts = { name: null, number: null }
         },
-              
+
         [authOperations.fetchCurrentUser.fulfilled](state, action) {
             state.user = { ...action.payload }
             state.isLoggedIn = true

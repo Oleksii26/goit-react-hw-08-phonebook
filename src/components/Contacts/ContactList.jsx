@@ -11,12 +11,13 @@ const ContactList = () => {
     const filter = useSelector(getFilter)
     const contacts = useSelector(getContacts)
 
-
     useEffect(() => {
         dispatch(fetchContacts())
     }, [dispatch])
     
     const getVisibleContacts = useMemo(() => {
+    console.log(contacts.isLoading)
+
         const normalizedContacts = filter.toLowerCase()
         return contacts.items.filter(({ name }) => name.toLowerCase().includes(normalizedContacts))
     }, [contacts, filter])
