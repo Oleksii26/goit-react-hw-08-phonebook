@@ -7,7 +7,7 @@ export const PrivateRoute = ({ children }) => {
 
     const isLoggedin = useSelector(getIsLoggedIn)
     if (!isLoggedin) {
-        return <Navigate to='/LogIn' />
+        return <Navigate to='/login' />
     }
     return children
 }

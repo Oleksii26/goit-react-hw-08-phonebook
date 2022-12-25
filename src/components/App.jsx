@@ -16,14 +16,14 @@ export const App = () => {
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser())
   }, [dispatch])
-  console.log('4564654')
+
   return (<>
     <AppBar />
     <Routes>
       <Route index element={<HomePage />} />
       <Route path="/phonebook" element={<PrivateRoute><Loyout /></PrivateRoute>} />
       <Route path="/register" element={<RectrictedRoute><FormRegistration /></RectrictedRoute>} />
-      <Route path="/LogIn" element={<RectrictedRoute><LoginPage /></RectrictedRoute>} />
+      <Route path="/login" element={<RectrictedRoute><LoginPage /></RectrictedRoute>} />
       <Route path='*' element={<HomePage />} />
     </Routes>
   </>
