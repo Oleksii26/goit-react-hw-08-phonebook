@@ -20,7 +20,7 @@ export const App = () => {
   return (<>
     <AppBar />
     <Routes>
-      <Route path='/home' element={<HomePage />} />
+      <Route path='/' element={<HomePage />} />
       <Route path="/phonebook" element={<PrivateRoute><Loyout /></PrivateRoute>} />
       <Route path="/register" element={<RectrictedRoute><FormRegistration /></RectrictedRoute>} />
       <Route path="/login" element={<RectrictedRoute><LoginPage /></RectrictedRoute>} />
